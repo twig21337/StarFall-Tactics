@@ -2,7 +2,7 @@ extends Node
 class_name TargetingSystem
 
 static func get_targets_in_range(attacker: UnitModel, units: Array, weapon: Dictionary) -> Array:
-    var result := []
+    var result: Array = []
     if weapon.is_empty():
         return result
     var range = weapon.get("range", {})

@@ -1,7 +1,7 @@
 extends Node
 class_name UnitRegistry
 
-var units := {}
+var units: Dictionary = {}
 
 func load_data() -> void:
     var data := JsonLoader.load_json("res://data/units/units_v1.json")

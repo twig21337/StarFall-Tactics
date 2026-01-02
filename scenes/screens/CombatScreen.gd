@@ -156,7 +156,7 @@ func _compute_movement_tiles(unit: UnitModel) -> Array:
     return MovementSystem.get_reachable_tiles(battle_state.map, unit.position, unit.get_stat("mov"), occ)
 
 func _build_occupancy(ignore: UnitModel) -> Dictionary:
-    var occ := {}
+    var occ: Dictionary = {}
     for unit in battle_state.units:
         if unit == ignore:
             continue
@@ -275,7 +275,7 @@ func _first_player_pos() -> Vector2i:
     return players[0].position
 
 func _cycle_units() -> void:
-    var units := []
+    var units: Array = []
     for unit in battle_state.get_units_by_side("PLAYER"):
         if not unit.has_acted:
             units.append(unit)

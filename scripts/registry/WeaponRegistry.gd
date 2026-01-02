@@ -1,7 +1,7 @@
 extends Node
 class_name WeaponRegistry
 
-var weapons := {}
+var weapons: Dictionary = {}
 
 func load_data() -> void:
     var data := JsonLoader.load_json("res://data/weapons/weapons_v1.json")

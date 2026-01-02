@@ -1,7 +1,7 @@
 extends Node
 class_name SkillRegistry
 
-var skills := {}
+var skills: Dictionary = {}
 
 func load_data() -> void:
     var data := JsonLoader.load_json("res://data/skills/skills_v1.json")

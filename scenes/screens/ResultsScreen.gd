@@ -5,7 +5,7 @@ extends Control
 func _ready() -> void:
     var state := Game.battle_state
     var result := state.winner if state != null else "DEFEAT"
-    var injured := []
+    var injured: Array = []
     if state != null:
         injured = state.injured_unit_ids
     var text := "%s\nInjured: %s\nPress Enter" % [result, ", ".join(injured)]

@@ -5,8 +5,8 @@ var id := ""
 var name := ""
 var size := Vector2i.ZERO
 var terrain_grid: Array = []
-var markers := {}
-var legend := {}
+var markers: Dictionary = {}
+var legend: Dictionary = {}
 
 func from_data(data: Dictionary) -> void:
     id = data.get("id", "")
@@ -16,9 +16,9 @@ func from_data(data: Dictionary) -> void:
     legend = data.get("legend", {})
     markers = data.get("markers", {})
     terrain_grid.clear()
-    var rows = data.get("layers", {}).get("terrain", [])
+    var rows: Array = data.get("layers", {}).get("terrain", [])
     for row in rows:
-        var row_tiles := []
+        var row_tiles: Array = []
         for ch in row:
             var tile_id = legend.get(ch, "TILE_PLAIN")
             row_tiles.append(tile_id)
@@ -27,7 +27,7 @@ func from_data(data: Dictionary) -> void:
 func get_tile_id(pos: Vector2i) -> String:
     if pos.y < 0 or pos.y >= terrain_grid.size():
         return ""
-    var row := terrain_grid[pos.y]
+    var row: Array = terrain_grid[pos.y]
     if pos.x < 0 or pos.x >= row.size():
         return ""
     return row[pos.x]

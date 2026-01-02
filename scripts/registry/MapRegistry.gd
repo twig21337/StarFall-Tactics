@@ -1,7 +1,7 @@
 extends Node
 class_name MapRegistry
 
-var maps := {}
+var maps: Dictionary = {}
 
 func load_data() -> void:
     var map_files := ["res://data/maps/map_001.json", "res://data/maps/map_002.json"]

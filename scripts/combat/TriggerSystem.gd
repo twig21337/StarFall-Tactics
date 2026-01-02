@@ -2,7 +2,7 @@ extends Node
 class_name TriggerSystem
 
 static func process_event(state: BattleState, event: Dictionary) -> Array:
-    var actions := []
+    var actions: Array = []
     for trigger in state.mission.triggers:
         if state.triggered_ids.has(trigger.get("id", "")):
             continue

@@ -84,7 +84,7 @@ func get_unit_at(pos: Vector2i) -> UnitModel:
     return null
 
 func get_units_by_side(side: String) -> Array:
-    var result := []
+    var result: Array = []
     for unit in units:
         if unit.side == side:
             result.append(unit)

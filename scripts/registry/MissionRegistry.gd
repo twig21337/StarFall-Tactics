@@ -1,7 +1,7 @@
 extends Node
 class_name MissionRegistry
 
-var missions := {}
+var missions: Dictionary = {}
 
 func load_data() -> void:
     var mission_files := ["res://data/missions/mission_001.json", "res://data/missions/mission_002.json"]

@@ -1,7 +1,7 @@
 extends Node
 class_name TileRegistry
 
-var tiles := {}
+var tiles: Dictionary = {}
 
 func load_data() -> void:
     var data := JsonLoader.load_json("res://data/tiles/tiles_v1.json")

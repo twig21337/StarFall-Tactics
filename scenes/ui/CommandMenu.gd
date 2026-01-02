@@ -26,7 +26,7 @@ func get_selected() -> String:
     return options[selected_index]
 
 func _refresh() -> void:
-    var lines := []
+    var lines: Array = []
     for i in range(options.size()):
         var prefix := "> " if i == selected_index else "  "
         lines.append(prefix + options[i])

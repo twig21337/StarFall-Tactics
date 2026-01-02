@@ -1,7 +1,7 @@
 extends Node
 class_name ItemRegistry
 
-var items := {}
+var items: Dictionary = {}
 
 func load_data() -> void:
     var data := JsonLoader.load_json("res://data/items/items_v1.json")

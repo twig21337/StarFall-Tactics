@@ -25,7 +25,7 @@ static func take_turn(state: BattleState, unit: UnitModel) -> Dictionary:
         if dist < best_dist:
             best_dist = dist
             best_tile = tile
-    var moved_targets := []
+    var moved_targets: Array = []
     for enemy in enemies:
         var dist := MovementSystem.manhattan(best_tile, enemy.position)
         var range = weapon.get("range", {})
@@ -48,7 +48,7 @@ static func _closest_unit(pos: Vector2i, units: Array) -> UnitModel:
     return best
 
 static func _build_occupancy(units: Array, ignore: UnitModel) -> Dictionary:
-    var occ := {}
+    var occ: Dictionary = {}
     for unit in units:
         if unit == ignore:
             continue

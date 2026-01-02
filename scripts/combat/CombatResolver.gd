@@ -2,7 +2,7 @@ extends Node
 class_name CombatResolver
 
 static func resolve(attacker: UnitModel, defender: UnitModel, map: MapModel) -> Dictionary:
-    var log := []
+    var log: Array = []
     var attacker_stats := CombatMath.compute_combat_stats(attacker, defender, map)
     var defender_weapon := Registries.weapons.get_weapon(defender.weapon_id)
     _apply_strikes(attacker, defender, attacker_stats, log)

@@ -2,7 +2,7 @@ extends Node
 class_name MovementSystem
 
 static func get_reachable_tiles(map: MapModel, start: Vector2i, move_points: int, occupied: Dictionary) -> Array:
-    var reachable := []
+    var reachable: Array = []
     var frontier := [start]
     var cost_so_far := {start: 0}
     while not frontier.is_empty():

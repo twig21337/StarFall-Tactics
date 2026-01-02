@@ -8,7 +8,7 @@ static func get_tile_data(map: MapModel, pos: Vector2i) -> Dictionary:
 static func get_terrain_label(tile: Dictionary) -> String:
     if tile.is_empty():
         return ""
-    var parts := []
+    var parts: Array = []
     var avoid = tile.get("avoid_bonus", 0)
     var def_bonus = tile.get("def_bonus", 0)
     if avoid != 0:

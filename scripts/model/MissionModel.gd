@@ -4,11 +4,11 @@ class_name MissionModel
 var id := ""
 var name := ""
 var map_id := ""
-var objective := {}
-var loss_conditions := []
-var deployment := {}
-var spawns := {}
-var triggers := []
+var objective: Dictionary = {}
+var loss_conditions: Array = []
+var deployment: Dictionary = {}
+var spawns: Dictionary = {}
+var triggers: Array = []
 
 func from_data(data: Dictionary) -> void:
     id = data.get("id", "")
