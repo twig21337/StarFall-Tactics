@@ -1,5 +1,4 @@
 extends Node
-class_name Game
 
 var current_mission_id := "MIS_001_FOREST_APPROACH"
 var battle_state: BattleState
