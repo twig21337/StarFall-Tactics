@@ -13,3 +13,10 @@ config_version=5
 config/name="StarFall Tactics"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+run/main_scene="res://scenes/screens/TitleScreen.tscn"
+
+[autoload]
+
+Registries="*res://scripts/autoload/Registries.gd"
+Game="*res://scripts/autoload/Game.gd"
+SaveSystem="*res://scripts/autoload/SaveSystem.gd"
