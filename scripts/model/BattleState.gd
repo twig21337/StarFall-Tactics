@@ -1,8 +1,8 @@
 extends Resource
 class_name BattleState
 
-var mission := MissionModel.new()
-var map := MapModel.new()
+var mission: MissionModel = MissionModel.new()
+var map: MapModel = MapModel.new()
 var units: Array = []
 var phase := "PLAYER"
 var turn := 1
@@ -18,8 +18,8 @@ func setup_from_mission(mission_data: Dictionary) -> void:
 
 func _spawn_player_units() -> void:
     units.clear()
-    var required_tags = mission.deployment.get("required_unit_tags", [])
-    var max_units = mission.deployment.get("max_units", 4)
+    var required_tags: Array = mission.deployment.get("required_unit_tags", [])
+    var max_units: int = mission.deployment.get("max_units", 4)
     var deploy_markers: Array = map.markers.get("player_deploy", [])
     var deployed := 0
     for unit_entry in Registries.units.units.values():
@@ -46,19 +46,19 @@ func _spawn_player_units() -> void:
 func _spawn_enemies() -> void:
     var enemy_spawns: Array = mission.spawns.get("enemies", [])
     for spawn in enemy_spawns:
-        var template = Registries.enemies.get_enemy(spawn.get("enemy_template_id", ""))
+        var template: Dictionary = Registries.enemies.get_enemy(spawn.get("enemy_template_id", ""))
         var unit := UnitModel.new()
         unit.setup_enemy(template, spawn)
         var marker: Vector2i = _find_marker("enemy_spawn", spawn.get("spawn_id", ""))
         unit.position = marker
         units.append(unit)
-    var boss_spawn = mission.spawns.get("boss", {})
+    var boss_spawn: Dictionary = mission.spawns.get("boss", {})
     if boss_spawn.size() > 0:
-        var template = Registries.enemies.get_enemy(boss_spawn.get("enemy_template_id", ""))
+        var template: Dictionary = Registries.enemies.get_enemy(boss_spawn.get("enemy_template_id", ""))
         var boss := UnitModel.new()
         boss.setup_enemy(template, boss_spawn)
         boss.tags.append("boss")
-        var boss_marker = _find_marker("boss_spawn", boss_spawn.get("spawn_id", ""))
+        var boss_marker: Vector2i = _find_marker("boss_spawn", boss_spawn.get("spawn_id", ""))
         boss.position = boss_marker
         units.append(boss)
 
