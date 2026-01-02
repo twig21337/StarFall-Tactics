@@ -1,5 +1,4 @@
 extends Node
-class_name Registries
 
 var tiles := TileRegistry.new()
 var weapons := WeaponRegistry.new()
