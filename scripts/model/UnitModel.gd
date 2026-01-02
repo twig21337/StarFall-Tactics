@@ -21,7 +21,7 @@ func setup_player(unit_data: Dictionary) -> void:
     name = unit_data.get("name", "")
     tags = unit_data.get("tags", [])
     class_id = unit_data.get("starting_class_id", "")
-    stats = Registries.classes.get_class(class_id).get("base_stats", {}).duplicate()
+    stats = Registries.classes.get_class_data(class_id).get("base_stats", {}).duplicate()
     max_hp = stats.get("hp", 1)
     hp = max_hp
     side = "PLAYER"

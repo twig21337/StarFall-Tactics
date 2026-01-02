@@ -9,5 +9,5 @@ func load_data() -> void:
     for entry in data.get("classes", []):
         classes[entry.get("id", "")] = entry
 
-func get_class(class_id: String) -> Dictionary:
+func get_class_data(class_id: String) -> Dictionary:
     return classes.get(class_id, {})
