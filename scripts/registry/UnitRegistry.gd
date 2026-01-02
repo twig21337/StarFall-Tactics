@@ -4,7 +4,7 @@ class_name UnitRegistry
 var units: Dictionary = {}
 
 func load_data() -> void:
-    var data := JsonLoader.load_json("res://data/units/units_v1.json")
+    var data: Dictionary = JsonLoader.load_json("res://data/units/units_v1.json")
     units.clear()
     for entry in data.get("units", []):
         units[entry.get("id", "")] = entry

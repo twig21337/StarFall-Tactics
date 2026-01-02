@@ -4,10 +4,10 @@ class_name MissionRegistry
 var missions: Dictionary = {}
 
 func load_data() -> void:
-    var mission_files := ["res://data/missions/mission_001.json", "res://data/missions/mission_002.json"]
+    var mission_files: Array = ["res://data/missions/mission_001.json", "res://data/missions/mission_002.json"]
     missions.clear()
     for path in mission_files:
-        var data := JsonLoader.load_json(path)
+        var data: Dictionary = JsonLoader.load_json(path)
         var mission_id = data.get("id", "")
         if mission_id != "":
             missions[mission_id] = data

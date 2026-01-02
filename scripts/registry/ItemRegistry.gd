@@ -4,7 +4,7 @@ class_name ItemRegistry
 var items: Dictionary = {}
 
 func load_data() -> void:
-    var data := JsonLoader.load_json("res://data/items/items_v1.json")
+    var data: Dictionary = JsonLoader.load_json("res://data/items/items_v1.json")
     items.clear()
     for entry in data.get("items", []):
         items[entry.get("id", "")] = entry

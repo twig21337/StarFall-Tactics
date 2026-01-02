@@ -2,7 +2,7 @@ extends Node
 class_name TerrainSystem
 
 static func get_tile_data(map: MapModel, pos: Vector2i) -> Dictionary:
-    var tile_id := map.get_tile_id(pos)
+    var tile_id: String = map.get_tile_id(pos)
     return Registries.tiles.get_tile(tile_id)
 
 static func get_terrain_label(tile: Dictionary) -> String:
@@ -21,7 +21,7 @@ static func get_terrain_label(tile: Dictionary) -> String:
 
 static func apply_fort_heal(units: Array, map: MapModel) -> void:
     for unit in units:
-        var tile := get_tile_data(map, unit.position)
+        var tile: Dictionary = get_tile_data(map, unit.position)
         if tile.get("id", "") == "TILE_FORT":
             var heal_amount := max(1, int(ceil(unit.max_hp * 0.1)))
             unit.hp = min(unit.max_hp, unit.hp + heal_amount)

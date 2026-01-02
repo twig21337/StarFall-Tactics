@@ -4,7 +4,7 @@ class_name TileRegistry
 var tiles: Dictionary = {}
 
 func load_data() -> void:
-    var data := JsonLoader.load_json("res://data/tiles/tiles_v1.json")
+    var data: Dictionary = JsonLoader.load_json("res://data/tiles/tiles_v1.json")
     tiles.clear()
     for entry in data.get("tiles", []):
         tiles[entry.get("id", "")] = entry

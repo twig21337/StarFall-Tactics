@@ -8,7 +8,7 @@ extends Node2D
 @onready var tutorial_popup = $CanvasLayer/TutorialPopup
 
 var battle_state: BattleState
-var ui_state := CombatUIState.new()
+var ui_state: CombatUIState = CombatUIState.new()
 
 func _ready() -> void:
     randomize()
@@ -49,7 +49,7 @@ func _move_cursor(dir: Vector2i) -> void:
     if ui_state.mode == "COMMAND_MENU":
         command_menu.move_selection(dir.y)
         return
-    var next := ui_state.cursor + dir
+    var next: Vector2i = ui_state.cursor + dir
     if battle_state.map.in_bounds(next):
         ui_state.cursor = next
         _update_panels()
@@ -58,7 +58,7 @@ func _move_cursor(dir: Vector2i) -> void:
 func _confirm_action() -> void:
     match ui_state.mode:
         "IDLE":
-            var unit := battle_state.get_unit_at(ui_state.cursor)
+            var unit: UnitModel = battle_state.get_unit_at(ui_state.cursor)
             if unit != null and unit.side == "PLAYER" and not unit.has_acted:
                 ui_state.selected_unit = unit
                 ui_state.mode = "MOVE_SELECT"
@@ -66,7 +66,7 @@ func _confirm_action() -> void:
         "MOVE_SELECT":
             _confirm_move()
         "COMMAND_MENU":
-            var selection := command_menu.get_selected()
+            var selection: String = command_menu.get_selected()
             if selection == "Attack":
                 ui_state.mode = "TARGET_SELECT"
                 command_menu.hide_menu()
@@ -80,15 +80,15 @@ func _confirm_action() -> void:
 func _confirm_move() -> void:
     if ui_state.selected_unit == null:
         return
-    var target := ui_state.cursor
-    var occupied := battle_state.get_unit_at(target)
+    var target: Vector2i = ui_state.cursor
+    var occupied: UnitModel = battle_state.get_unit_at(target)
     if occupied != null and occupied != ui_state.selected_unit:
         return
     if target != ui_state.selected_unit.position and not ui_state.movement_tiles.has(target):
         return
     ui_state.selected_unit.position = target
     _trigger_enter_tile(ui_state.selected_unit)
-    var targets := TargetingSystem.get_targets_in_range(ui_state.selected_unit, battle_state.get_units_by_side("ENEMY"), Registries.weapons.get_weapon(ui_state.selected_unit.weapon_id))
+    var targets: Array = TargetingSystem.get_targets_in_range(ui_state.selected_unit, battle_state.get_units_by_side("ENEMY"), Registries.weapons.get_weapon(ui_state.selected_unit.weapon_id))
     if targets.is_empty():
         _finish_unit_action()
     else:
@@ -98,16 +98,16 @@ func _confirm_move() -> void:
 func _confirm_attack() -> void:
     if ui_state.selected_unit == null:
         return
-    var target := battle_state.get_unit_at(ui_state.cursor)
+    var target: UnitModel = battle_state.get_unit_at(ui_state.cursor)
     if target == null or target.side != "ENEMY":
         return
-    var weapon := Registries.weapons.get_weapon(ui_state.selected_unit.weapon_id)
-    var dist := MovementSystem.manhattan(ui_state.selected_unit.position, target.position)
+    var weapon: Dictionary = Registries.weapons.get_weapon(ui_state.selected_unit.weapon_id)
+    var dist: int = MovementSystem.manhattan(ui_state.selected_unit.position, target.position)
     var range = weapon.get("range", {})
     if dist < range.get("min", 1) or dist > range.get("max", 1):
         return
     _trigger_target_unit(ui_state.selected_unit, target)
-    var result := CombatResolver.resolve(ui_state.selected_unit, target, battle_state.map)
+    var result: Dictionary = CombatResolver.resolve(ui_state.selected_unit, target, battle_state.map)
     _apply_combat_result(result, target)
     _finish_unit_action()
 
@@ -142,9 +142,9 @@ func _update_panels() -> void:
     selected_panel.set_unit(ui_state.selected_unit)
     tile_panel.set_tile(TerrainSystem.get_tile_data(battle_state.map, ui_state.cursor))
     if ui_state.mode == "TARGET_SELECT" and ui_state.selected_unit != null:
-        var target := battle_state.get_unit_at(ui_state.cursor)
+        var target: UnitModel = battle_state.get_unit_at(ui_state.cursor)
         if target != null and target.side != ui_state.selected_unit.side:
-            var forecast := ForecastSystem.build_forecast(ui_state.selected_unit, target, battle_state.map)
+            var forecast: Dictionary = ForecastSystem.build_forecast(ui_state.selected_unit, target, battle_state.map)
             forecast_panel.set_forecast(forecast)
         else:
             forecast_panel.set_forecast({})
@@ -152,7 +152,7 @@ func _update_panels() -> void:
         forecast_panel.set_forecast({})
 
 func _compute_movement_tiles(unit: UnitModel) -> Array:
-    var occ := _build_occupancy(unit)
+    var occ: Dictionary = _build_occupancy(unit)
     return MovementSystem.get_reachable_tiles(battle_state.map, unit.position, unit.get_stat("mov"), occ)
 
 func _build_occupancy(ignore: UnitModel) -> Dictionary:
@@ -187,7 +187,7 @@ func _run_enemy_phase() -> void:
     for enemy in battle_state.get_units_by_side("ENEMY"):
         if enemy.hp <= 0:
             continue
-        var action := AI.take_turn(battle_state, enemy)
+        var action: Dictionary = AI.take_turn(battle_state, enemy)
         enemy.position = action.get("move", enemy.position)
         if action.get("type", "") == "attack":
             var target: UnitModel = action.get("target", null)
@@ -212,9 +212,9 @@ func _check_unit_down(unit: UnitModel) -> void:
 func _check_victory_conditions() -> void:
     if battle_state.winner != "":
         return
-    var boss_spawn = battle_state.mission.objective.get("boss_spawn_id", "")
+    var boss_spawn: String = battle_state.mission.objective.get("boss_spawn_id", "")
     if boss_spawn != "":
-        var boss_alive := false
+        var boss_alive: bool = false
         for unit in battle_state.units:
             if unit.spawn_id == boss_spawn:
                 boss_alive = true
@@ -225,8 +225,8 @@ func _check_victory_conditions() -> void:
             return
     for condition in battle_state.mission.loss_conditions:
         if condition.get("type", "") == "TAG_DEFEATED":
-            var tag = condition.get("tag", "")
-            var tag_alive := false
+            var tag: String = condition.get("tag", "")
+            var tag_alive: bool = false
             for unit in battle_state.units:
                 if unit.side == "PLAYER" and unit.is_tagged(tag):
                     tag_alive = true
@@ -240,12 +240,12 @@ func _go_to_results() -> void:
     get_tree().change_scene_to_file("res://scenes/screens/ResultsScreen.tscn")
 
 func _trigger_turn_start() -> void:
-    var actions := TriggerSystem.process_event(battle_state, {"type": "TURN_START"})
+    var actions: Array = TriggerSystem.process_event(battle_state, {"type": "TURN_START"})
     _handle_trigger_actions(actions)
 
 func _trigger_enter_tile(unit: UnitModel) -> void:
-    var tile_id := battle_state.map.get_tile_id(unit.position)
-    var actions := TriggerSystem.process_event(battle_state, {
+    var tile_id: String = battle_state.map.get_tile_id(unit.position)
+    var actions: Array = TriggerSystem.process_event(battle_state, {
         "type": "UNIT_ENTERS_TILE",
         "unit_side": unit.side,
         "tile_id": tile_id
@@ -253,10 +253,10 @@ func _trigger_enter_tile(unit: UnitModel) -> void:
     _handle_trigger_actions(actions)
 
 func _trigger_target_unit(unit: UnitModel, target: UnitModel) -> void:
-    var tag := ""
+    var tag: String = ""
     if target.is_tagged("boss"):
         tag = "boss"
-    var actions := TriggerSystem.process_event(battle_state, {
+    var actions: Array = TriggerSystem.process_event(battle_state, {
         "type": "UNIT_TARGETS_UNIT",
         "unit_side": unit.side,
         "target_tag": tag
@@ -269,7 +269,7 @@ func _handle_trigger_actions(actions: Array) -> void:
             tutorial_popup.show_tutorial(action.get("title", "Tutorial"), action.get("body", ""))
 
 func _first_player_pos() -> Vector2i:
-    var players := battle_state.get_units_by_side("PLAYER")
+    var players: Array = battle_state.get_units_by_side("PLAYER")
     if players.is_empty():
         return Vector2i.ZERO
     return players[0].position
@@ -281,7 +281,7 @@ func _cycle_units() -> void:
             units.append(unit)
     if units.is_empty():
         return
-    var index := 0
+    var index: int = 0
     for i in range(units.size()):
         if units[i].position == ui_state.cursor:
             index = (i + 1) % units.size()

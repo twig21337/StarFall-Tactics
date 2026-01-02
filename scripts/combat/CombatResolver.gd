@@ -3,11 +3,11 @@ class_name CombatResolver
 
 static func resolve(attacker: UnitModel, defender: UnitModel, map: MapModel) -> Dictionary:
     var log: Array = []
-    var attacker_stats := CombatMath.compute_combat_stats(attacker, defender, map)
-    var defender_weapon := Registries.weapons.get_weapon(defender.weapon_id)
+    var attacker_stats: Dictionary = CombatMath.compute_combat_stats(attacker, defender, map)
+    var defender_weapon: Dictionary = Registries.weapons.get_weapon(defender.weapon_id)
     _apply_strikes(attacker, defender, attacker_stats, log)
     if defender.hp > 0 and TargetingSystem.can_counter(defender, attacker, defender_weapon):
-        var counter_stats := CombatMath.compute_combat_stats(defender, attacker, map)
+        var counter_stats: Dictionary = CombatMath.compute_combat_stats(defender, attacker, map)
         _apply_strikes(defender, attacker, counter_stats, log)
     return {"log": log}
 
@@ -15,7 +15,7 @@ static func _apply_strikes(attacker: UnitModel, defender: UnitModel, stats: Dict
     for i in range(stats.get("strikes", 1)):
         if defender.hp <= 0:
             return
-        var hit_roll := _roll_2rn()
+        var hit_roll: float = _roll_2rn()
         var hit = hit_roll < stats.get("hit", 0)
         var crit := false
         var dmg := 0

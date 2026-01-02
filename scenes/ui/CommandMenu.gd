@@ -3,7 +3,7 @@ extends Control
 @onready var label: Label = $Label
 
 var options: Array = []
-var selected_index := 0
+var selected_index: int = 0
 
 func show_options(list: Array) -> void:
     options = list
@@ -28,6 +28,6 @@ func get_selected() -> String:
 func _refresh() -> void:
     var lines: Array = []
     for i in range(options.size()):
-        var prefix := "> " if i == selected_index else "  "
+        var prefix: String = "> " if i == selected_index else "  "
         lines.append(prefix + options[i])
     label.text = "Commands\n" + "\n".join(lines)

@@ -3,12 +3,12 @@ extends Control
 @onready var label: Label = $Label
 
 func _ready() -> void:
-    var state := Game.battle_state
-    var result := state.winner if state != null else "DEFEAT"
+    var state: BattleState = Game.battle_state
+    var result: String = state.winner if state != null else "DEFEAT"
     var injured: Array = []
     if state != null:
         injured = state.injured_unit_ids
-    var text := "%s\nInjured: %s\nPress Enter" % [result, ", ".join(injured)]
+    var text: String = "%s\nInjured: %s\nPress Enter" % [result, ", ".join(injured)]
     label.text = text
 
 func _unhandled_input(event: InputEvent) -> void:
