@@ -20,7 +20,7 @@ func _spawn_player_units() -> void:
     units.clear()
     var required_tags = mission.deployment.get("required_unit_tags", [])
     var max_units = mission.deployment.get("max_units", 4)
-    var deploy_markers = map.markers.get("player_deploy", [])
+    var deploy_markers: Array = map.markers.get("player_deploy", [])
     var deployed := 0
     for unit_entry in Registries.units.units.values():
         if deployed >= max_units:
@@ -28,7 +28,7 @@ func _spawn_player_units() -> void:
         var unit := UnitModel.new()
         unit.setup_player(unit_entry)
         if required_tags.is_empty() or _has_any_tag(unit.tags, required_tags):
-            var marker := deploy_markers[deployed]
+            var marker: Dictionary = deploy_markers[deployed]
             unit.position = Vector2i(marker.get("x", 0), marker.get("y", 0))
             units.append(unit)
             deployed += 1
@@ -38,18 +38,18 @@ func _spawn_player_units() -> void:
         var unit := UnitModel.new()
         unit.setup_player(unit_entry)
         if not _has_any_tag(unit.tags, required_tags):
-            var marker := deploy_markers[deployed]
+            var marker: Dictionary = deploy_markers[deployed]
             unit.position = Vector2i(marker.get("x", 0), marker.get("y", 0))
             units.append(unit)
             deployed += 1
 
 func _spawn_enemies() -> void:
-    var enemy_spawns = mission.spawns.get("enemies", [])
+    var enemy_spawns: Array = mission.spawns.get("enemies", [])
     for spawn in enemy_spawns:
         var template = Registries.enemies.get_enemy(spawn.get("enemy_template_id", ""))
         var unit := UnitModel.new()
         unit.setup_enemy(template, spawn)
-        var marker = _find_marker("enemy_spawn", spawn.get("spawn_id", ""))
+        var marker: Vector2i = _find_marker("enemy_spawn", spawn.get("spawn_id", ""))
         unit.position = marker
         units.append(unit)
     var boss_spawn = mission.spawns.get("boss", {})
@@ -63,7 +63,7 @@ func _spawn_enemies() -> void:
         units.append(boss)
 
 func _find_marker(marker_type: String, spawn_id: String) -> Vector2i:
-    var markers = map.markers.get(marker_type, [])
+    var markers: Array = map.markers.get(marker_type, [])
     for marker in markers:
         if marker.get("spawn_id", "") == spawn_id:
             return Vector2i(marker.get("x", 0), marker.get("y", 0))
