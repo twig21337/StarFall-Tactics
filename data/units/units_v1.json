@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "units": [
+    {
+      "id": "UNIT_WADE",
+      "name": "Wade",
+      "tags": [
+        "lord"
+      ],
+      "starting_class_id": "CLS_LORD",
+      "starting_level": 1,
+      "starting_exp": 0,
+      "inventory": [
+        {
+          "weapon_id": "WPN_IRON_SWORD"
+        },
+        {
+          "item_id": "ITM_VULNERARY",
+          "qty": 1
+        }
+      ],
+      "portrait_key": "portraits:WADE_01",
+      "battle_sprite_key": "units:WADE_LORD_01",
+      "bio": "A determined leader learning the cost of command."
+    },
+    {
+      "id": "UNIT_BRUTE",
+      "name": "Brute",
+      "tags": [
+        "fighter"
+      ],
+      "starting_class_id": "CLS_FIGHTER",
+      "starting_level": 1,
+      "starting_exp": 0,
+      "inventory": [
+        {
+          "weapon_id": "WPN_IRON_AXE"
+        },
+        {
+          "item_id": "ITM_VULNERARY",
+          "qty": 1
+        }
+      ],
+      "portrait_key": "portraits:BRUTE_01",
+      "battle_sprite_key": "units:BRUTE_FIGHTER_01",
+      "bio": "A relentless brawler who solves problems with force."
+    },
+    {
+      "id": "UNIT_PIKE",
+      "name": "Pike",
+      "tags": [
+        "soldier"
+      ],
+      "starting_class_id": "CLS_SOLDIER",
+      "starting_level": 1,
+      "starting_exp": 0,
+      "inventory": [
+        {
+          "weapon_id": "WPN_IRON_SPEAR"
+        },
+        {
+          "item_id": "ITM_ANTIDOTE",
+          "qty": 1
+        }
+      ],
+      "portrait_key": "portraits:PIKE_01",
+      "battle_sprite_key": "units:PIKE_SOLDIER_01",
+      "bio": "A disciplined spear-bearer who holds the line."
+    },
+    {
+      "id": "UNIT_IRIS",
+      "name": "Iris",
+      "tags": [
+        "mage"
+      ],
+      "starting_class_id": "CLS_MAGE",
+      "starting_level": 1,
+      "starting_exp": 0,
+      "inventory": [
+        {
+          "weapon_id": "WPN_FIRE"
+        },
+        {
+          "item_id": "ITM_VULNERARY",
+          "qty": 1
+        }
+      ],
+      "portrait_key": "portraits:IRIS_01",
+      "battle_sprite_key": "units:IRIS_MAGE_01",
+      "bio": "A focused apprentice who turns knowledge into power."
+    },
+    {
+      "id": "UNIT_QUILL",
+      "name": "Quill",
+      "tags": [
+        "archer"
+      ],
+      "starting_class_id": "CLS_ARCHER",
+      "starting_level": 1,
+      "starting_exp": 0,
+      "inventory": [
+        {
+          "weapon_id": "WPN_IRON_BOW"
+        },
+        {
+          "item_id": "ITM_VULNERARY",
+          "qty": 1
+        }
+      ],
+      "portrait_key": "portraits:QUILL_01",
+      "battle_sprite_key": "units:QUILL_ARCHER_01",
+      "bio": "A quiet sharpshooter with a steady hand."
+    },
+    {
+      "id": "UNIT_MARA",
+      "name": "Mara",
+      "tags": [
+        "cleric"
+      ],
+      "starting_class_id": "CLS_CLERIC",
+      "starting_level": 1,
+      "starting_exp": 0,
+      "inventory": [
+        {
+          "item_id": "ITM_HEAL_STAFF",
+          "qty": 1
+        },
+        {
+          "item_id": "ITM_VULNERARY",
+          "qty": 1
+        }
+      ],
+      "portrait_key": "portraits:MARA_01",
+      "battle_sprite_key": "units:MARA_CLERIC_01",
+      "bio": "A compassionate healer who keeps the squad standing."
+    }
+  ]
+}

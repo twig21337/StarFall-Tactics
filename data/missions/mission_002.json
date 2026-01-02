@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "id": "MIS_002_LONG_SIGHT",
+  "name": "Long Sight",
+  "map_id": "MAP_002_LONG_SIGHT",
+  "objective": {
+    "type": "ROUT"
+  },
+  "loss_conditions": [
+    {
+      "type": "TAG_DEFEATED",
+      "tag": "lord"
+    }
+  ],
+  "deployment": {
+    "max_units": 5,
+    "required_unit_tags": [
+      "lord"
+    ]
+  },
+  "spawns": {
+    "enemies": [
+      {
+        "spawn_id": "e1",
+        "enemy_template_id": "ENY_ARCHER_L3",
+        "ai_profile": "AI_RANGED"
+      },
+      {
+        "spawn_id": "e2",
+        "enemy_template_id": "ENY_SPEARMAN_TANK_L3",
+        "ai_profile": "AI_HOLD"
+      },
+      {
+        "spawn_id": "e3",
+        "enemy_template_id": "ENY_BANDIT_BRUISER_L3",
+        "ai_profile": "AI_AGGRO"
+      },
+      {
+        "spawn_id": "e4",
+        "enemy_template_id": "ENY_SWORDSMAN_SKIRM_L3",
+        "ai_profile": "AI_AGGRO"
+      }
+    ],
+    "boss": null
+  },
+  "rewards": {
+    "gold": 350,
+    "items": [
+      {
+        "item_id": "ITM_VULNERARY",
+        "qty": 2
+      }
+    ],
+    "weapons": [
+      {
+        "weapon_id": "WPN_IRON_BOW",
+        "qty": 1
+      }
+    ]
+  },
+  "triggers": [
+    {
+      "id": "TUT_THREAT_OVERLAY",
+      "when": {
+        "type": "TURN_START",
+        "phase": "PLAYER",
+        "turn": 1
+      },
+      "do": [
+        {
+          "type": "SHOW_TUTORIAL",
+          "title": "Threat Overlay",
+          "body": "Toggle the danger zone to see where enemies can attack. Use it to advance safely."
+        }
+      ],
+      "once": true
+    }
+  ]
+}

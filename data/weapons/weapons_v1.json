@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "weapons": [
+    {
+      "id": "WPN_IRON_SWORD",
+      "name": "Iron Sword",
+      "category": "MELEE",
+      "subtype": "SWORD",
+      "tier": 1,
+      "range": {
+        "min": 1,
+        "max": 1
+      },
+      "might": 5,
+      "hit": 85,
+      "crit": 0,
+      "sprite_key": "icons_weapons:SWORD_IRON"
+    },
+    {
+      "id": "WPN_IRON_AXE",
+      "name": "Iron Axe",
+      "category": "MELEE",
+      "subtype": "AXE",
+      "tier": 1,
+      "range": {
+        "min": 1,
+        "max": 1
+      },
+      "might": 8,
+      "hit": 70,
+      "crit": 0,
+      "sprite_key": "icons_weapons:AXE_IRON"
+    },
+    {
+      "id": "WPN_IRON_SPEAR",
+      "name": "Iron Spear",
+      "category": "MELEE",
+      "subtype": "SPEAR",
+      "tier": 1,
+      "range": {
+        "min": 1,
+        "max": 1
+      },
+      "might": 6,
+      "hit": 80,
+      "crit": 0,
+      "sprite_key": "icons_weapons:SPEAR_IRON"
+    },
+    {
+      "id": "WPN_STEEL_SWORD",
+      "name": "Steel Sword",
+      "category": "MELEE",
+      "subtype": "SWORD",
+      "tier": 2,
+      "range": {
+        "min": 1,
+        "max": 1
+      },
+      "might": 7,
+      "hit": 80,
+      "crit": 0,
+      "sprite_key": "icons_weapons:SWORD_STEEL"
+    },
+    {
+      "id": "WPN_STEEL_AXE",
+      "name": "Steel Axe",
+      "category": "MELEE",
+      "subtype": "AXE",
+      "tier": 2,
+      "range": {
+        "min": 1,
+        "max": 1
+      },
+      "might": 10,
+      "hit": 65,
+      "crit": 0,
+      "sprite_key": "icons_weapons:AXE_STEEL"
+    },
+    {
+      "id": "WPN_STEEL_SPEAR",
+      "name": "Steel Spear",
+      "category": "MELEE",
+      "subtype": "SPEAR",
+      "tier": 2,
+      "range": {
+        "min": 1,
+        "max": 1
+      },
+      "might": 8,
+      "hit": 75,
+      "crit": 0,
+      "sprite_key": "icons_weapons:SPEAR_STEEL"
+    },
+    {
+      "id": "WPN_IRON_BOW",
+      "name": "Iron Bow",
+      "category": "RANGED",
+      "subtype": "BOW",
+      "tier": 1,
+      "range": {
+        "min": 2,
+        "max": 2
+      },
+      "might": 5,
+      "hit": 80,
+      "crit": 0,
+      "sprite_key": "icons_weapons:BOW_IRON"
+    },
+    {
+      "id": "WPN_JAVELIN",
+      "name": "Javelin",
+      "category": "RANGED",
+      "subtype": "THROWING",
+      "tier": 1,
+      "range": {
+        "min": 1,
+        "max": 2
+      },
+      "might": 4,
+      "hit": 70,
+      "crit": 0,
+      "sprite_key": "icons_weapons:JAVELIN_01"
+    },
+    {
+      "id": "WPN_HAND_AXE",
+      "name": "Hand Axe",
+      "category": "RANGED",
+      "subtype": "THROWING",
+      "tier": 1,
+      "range": {
+        "min": 1,
+        "max": 2
+      },
+      "might": 6,
+      "hit": 60,
+      "crit": 0,
+      "sprite_key": "icons_weapons:HANDAXE_01"
+    },
+    {
+      "id": "WPN_FIRE",
+      "name": "Fire",
+      "category": "MAGIC",
+      "subtype": "FIRE",
+      "tier": 1,
+      "range": {
+        "min": 1,
+        "max": 2
+      },
+      "might": 6,
+      "hit": 85,
+      "crit": 0,
+      "sprite_key": "icons_magic:FIRE_01"
+    },
+    {
+      "id": "WPN_THUNDER",
+      "name": "Thunder",
+      "category": "MAGIC",
+      "subtype": "THUNDER",
+      "tier": 1,
+      "range": {
+        "min": 1,
+        "max": 2
+      },
+      "might": 7,
+      "hit": 75,
+      "crit": 0,
+      "sprite_key": "icons_magic:THUNDER_01"
+    }
+  ]
+}

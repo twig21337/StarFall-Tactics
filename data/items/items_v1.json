@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "ITM_VULNERARY",
+      "name": "Vulnerary",
+      "type": "CONSUMABLE",
+      "stackable": true,
+      "max_stack": 99,
+      "use_action": {
+        "type": "HEAL",
+        "amount": 10
+      },
+      "sprite_key": "icons_items:VULNERARY_01",
+      "description": "Heals 10 HP."
+    },
+    {
+      "id": "ITM_ANTIDOTE",
+      "name": "Antidote",
+      "type": "CONSUMABLE",
+      "stackable": true,
+      "max_stack": 99,
+      "use_action": {
+        "type": "CURE_STATUS",
+        "status": "POISON"
+      },
+      "sprite_key": "icons_items:ANTIDOTE_01",
+      "description": "Cures poison."
+    },
+    {
+      "id": "ITM_HEAL_STAFF",
+      "name": "Heal Staff",
+      "type": "STAFF",
+      "stackable": false,
+      "use_action": {
+        "type": "HEAL",
+        "amount": 8,
+        "range": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "sprite_key": "icons_items:STAFF_HEAL_01",
+      "description": "Heals an adjacent ally for 8 HP."
+    },
+    {
+      "id": "ITM_PROMOTION_SEAL",
+      "name": "Promotion Seal",
+      "type": "KEY_ITEM",
+      "stackable": true,
+      "max_stack": 99,
+      "use_action": {
+        "type": "PROMOTE",
+        "requires_level": 10
+      },
+      "sprite_key": "icons_items:SEAL_01",
+      "description": "Promotes a unit at level 10."
+    }
+  ]
+}

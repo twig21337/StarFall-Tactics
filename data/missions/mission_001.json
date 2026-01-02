@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "id": "MIS_001_FOREST_APPROACH",
+  "name": "Forest Approach",
+  "map_id": "MAP_001_FOREST_APPROACH",
+  "objective": {
+    "type": "DEFEAT_BOSS",
+    "boss_spawn_id": "boss"
+  },
+  "loss_conditions": [
+    {
+      "type": "TAG_DEFEATED",
+      "tag": "lord"
+    }
+  ],
+  "deployment": {
+    "max_units": 4,
+    "required_unit_tags": [
+      "lord"
+    ]
+  },
+  "spawns": {
+    "enemies": [
+      {
+        "spawn_id": "e1",
+        "enemy_template_id": "ENY_BANDIT_BRUISER_L3",
+        "ai_profile": "AI_AGGRO"
+      },
+      {
+        "spawn_id": "e2",
+        "enemy_template_id": "ENY_SPEARMAN_TANK_L3",
+        "ai_profile": "AI_HOLD"
+      },
+      {
+        "spawn_id": "e3",
+        "enemy_template_id": "ENY_SWORDSMAN_SKIRM_L3",
+        "ai_profile": "AI_AGGRO"
+      },
+      {
+        "spawn_id": "e4",
+        "enemy_template_id": "ENY_ARCHER_L3",
+        "ai_profile": "AI_RANGED"
+      },
+      {
+        "spawn_id": "e5",
+        "enemy_template_id": "ENY_BANDIT_BRUISER_L3",
+        "ai_profile": "AI_AGGRO"
+      },
+      {
+        "spawn_id": "e6",
+        "enemy_template_id": "ENY_SPEARMAN_TANK_L3",
+        "ai_profile": "AI_HOLD"
+      }
+    ],
+    "boss": {
+      "spawn_id": "boss",
+      "enemy_template_id": "ENY_CAPTAIN_BOSS_L4",
+      "ai_profile": "AI_BOSS_FORT"
+    }
+  },
+  "rewards": {
+    "gold": 300,
+    "items": [
+      {
+        "item_id": "ITM_VULNERARY",
+        "qty": 2
+      },
+      {
+        "item_id": "ITM_ANTIDOTE",
+        "qty": 1
+      }
+    ],
+    "weapons": [
+      {
+        "weapon_id": "WPN_STEEL_SPEAR",
+        "qty": 1
+      }
+    ]
+  },
+  "triggers": [
+    {
+      "id": "TUT_TRIANGLE",
+      "when": {
+        "type": "TURN_START",
+        "phase": "PLAYER",
+        "turn": 1
+      },
+      "do": [
+        {
+          "type": "SHOW_TUTORIAL",
+          "title": "Weapon Triangle",
+          "body": "Swords > Axes > Spears > Swords. Advantage: +15 Hit, +1 Dmg. Ranged and magic ignore the triangle."
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "TUT_TERRAIN",
+      "when": {
+        "type": "UNIT_ENTERS_TILE",
+        "unit_side": "PLAYER",
+        "tile_id": "TILE_FOREST"
+      },
+      "do": [
+        {
+          "type": "SHOW_TUTORIAL",
+          "title": "Terrain: Forest",
+          "body": "Forests grant +20 Avoid and +1 DEF, but cost 2 movement to enter."
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "TUT_FORECAST",
+      "when": {
+        "type": "UNIT_TARGETS_UNIT",
+        "unit_side": "PLAYER",
+        "target_tag": "boss"
+      },
+      "do": [
+        {
+          "type": "SHOW_TUTORIAL",
+          "title": "Forecast",
+          "body": "Before you commit, the forecast shows damage, hit, crit, doubling, and counterattacks. Use it to plan safe trades."
+        }
+      ],
+      "once": true
+    }
+  ]
+}

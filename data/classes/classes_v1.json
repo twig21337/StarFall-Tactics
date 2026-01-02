@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "classes": [
+    {
+      "id": "CLS_LORD",
+      "name": "Lord",
+      "tier": "BASE",
+      "weapons_allowed": [
+        "SWORD"
+      ],
+      "base_stats": {
+        "hp": 22,
+        "str": 6,
+        "mag": 2,
+        "def": 5,
+        "res": 3,
+        "skl": 7,
+        "spd": 7,
+        "lck": 6,
+        "mov": 5
+      },
+      "growths": {
+        "hp": 60,
+        "str": 45,
+        "mag": 20,
+        "def": 40,
+        "res": 30,
+        "skl": 50,
+        "spd": 45,
+        "lck": 40
+      },
+      "passive_skill_id": "SKL_COMMAND",
+      "learned_skill": {
+        "level": 5,
+        "skill_id": "SKL_FOCUSED_STRIKE"
+      },
+      "promotes_to": "CLS_HERO"
+    },
+    {
+      "id": "CLS_FIGHTER",
+      "name": "Fighter",
+      "tier": "BASE",
+      "weapons_allowed": [
+        "AXE"
+      ],
+      "base_stats": {
+        "hp": 26,
+        "str": 9,
+        "mag": 0,
+        "def": 4,
+        "res": 1,
+        "skl": 5,
+        "spd": 5,
+        "lck": 3,
+        "mov": 5
+      },
+      "growths": {
+        "hp": 70,
+        "str": 60,
+        "mag": 5,
+        "def": 35,
+        "res": 15,
+        "skl": 35,
+        "spd": 30,
+        "lck": 20
+      },
+      "passive_skill_id": "SKL_HEAVY_SWING",
+      "learned_skill": {
+        "level": 5,
+        "skill_id": "SKL_SHATTER"
+      },
+      "promotes_to": "CLS_BERSERKER"
+    },
+    {
+      "id": "CLS_SOLDIER",
+      "name": "Soldier",
+      "tier": "BASE",
+      "weapons_allowed": [
+        "SPEAR"
+      ],
+      "base_stats": {
+        "hp": 24,
+        "str": 7,
+        "mag": 0,
+        "def": 7,
+        "res": 2,
+        "skl": 6,
+        "spd": 4,
+        "lck": 4,
+        "mov": 4
+      },
+      "growths": {
+        "hp": 65,
+        "str": 45,
+        "mag": 5,
+        "def": 55,
+        "res": 20,
+        "skl": 35,
+        "spd": 25,
+        "lck": 25
+      },
+      "passive_skill_id": "SKL_HOLD_THE_LINE",
+      "learned_skill": {
+        "level": 5,
+        "skill_id": "SKL_BRACE"
+      },
+      "promotes_to": "CLS_KNIGHT"
+    },
+    {
+      "id": "CLS_ARCHER",
+      "name": "Archer",
+      "tier": "BASE",
+      "weapons_allowed": [
+        "BOW"
+      ],
+      "base_stats": {
+        "hp": 20,
+        "str": 6,
+        "mag": 0,
+        "def": 3,
+        "res": 2,
+        "skl": 8,
+        "spd": 6,
+        "lck": 5,
+        "mov": 5
+      },
+      "growths": {
+        "hp": 55,
+        "str": 40,
+        "mag": 0,
+        "def": 20,
+        "res": 20,
+        "skl": 60,
+        "spd": 45,
+        "lck": 35
+      },
+      "passive_skill_id": "SKL_STEADY_AIM",
+      "learned_skill": {
+        "level": 5,
+        "skill_id": "SKL_PINNING_SHOT"
+      },
+      "promotes_to": "CLS_SNIPER"
+    },
+    {
+      "id": "CLS_MAGE",
+      "name": "Mage",
+      "tier": "BASE",
+      "weapons_allowed": [
+        "FIRE",
+        "THUNDER"
+      ],
+      "base_stats": {
+        "hp": 18,
+        "str": 0,
+        "mag": 8,
+        "def": 2,
+        "res": 6,
+        "skl": 6,
+        "spd": 6,
+        "lck": 4,
+        "mov": 5
+      },
+      "growths": {
+        "hp": 45,
+        "str": 0,
+        "mag": 55,
+        "def": 15,
+        "res": 45,
+        "skl": 40,
+        "spd": 40,
+        "lck": 25
+      },
+      "passive_skill_id": "SKL_ARCANE_FOCUS",
+      "learned_skill": {
+        "level": 5,
+        "skill_id": "SKL_OVERCHANNEL"
+      },
+      "promotes_to": "CLS_SAGE"
+    },
+    {
+      "id": "CLS_CLERIC",
+      "name": "Cleric",
+      "tier": "BASE",
+      "weapons_allowed": [
+        "STAFF"
+      ],
+      "base_stats": {
+        "hp": 18,
+        "str": 0,
+        "mag": 5,
+        "def": 2,
+        "res": 7,
+        "skl": 5,
+        "spd": 4,
+        "lck": 6,
+        "mov": 5
+      },
+      "growths": {
+        "hp": 45,
+        "str": 0,
+        "mag": 35,
+        "def": 15,
+        "res": 55,
+        "skl": 35,
+        "spd": 25,
+        "lck": 45
+      },
+      "passive_skill_id": "SKL_HEALERS_TOUCH",
+      "learned_skill": {
+        "level": 5,
+        "skill_id": "SKL_REFRESH"
+      },
+      "promotes_to": "CLS_BISHOP"
+    },
+    {
+      "id": "CLS_HERO",
+      "name": "Hero",
+      "tier": "PROMOTED",
+      "weapons_allowed": [
+        "SWORD",
+        "BOW"
+      ],
+      "promotion_gains": {
+        "mov": 1,
+        "hp": 3,
+        "str": 2,
+        "mag": 0,
+        "def": 2,
+        "res": 0,
+        "skl": 1,
+        "spd": 1,
+        "lck": 1
+      },
+      "passive_skill_id": "SKL_VETERAN",
+      "learned_skill": {
+        "level": 1,
+        "skill_id": "SKL_RALLY"
+      }
+    },
+    {
+      "id": "CLS_BERSERKER",
+      "name": "Berserker",
+      "tier": "PROMOTED",
+      "weapons_allowed": [
+        "AXE"
+      ],
+      "promotion_gains": {
+        "mov": 1,
+        "hp": 4,
+        "str": 3,
+        "mag": 0,
+        "def": 1,
+        "res": 0,
+        "skl": 0,
+        "spd": 1,
+        "lck": 0
+      },
+      "passive_skill_id": null,
+      "learned_skill": null
+    },
+    {
+      "id": "CLS_KNIGHT",
+      "name": "Knight",
+      "tier": "PROMOTED",
+      "weapons_allowed": [
+        "SPEAR"
+      ],
+      "promotion_gains": {
+        "mov": 1,
+        "hp": 3,
+        "str": 1,
+        "mag": 0,
+        "def": 3,
+        "res": 1,
+        "skl": 0,
+        "spd": 0,
+        "lck": 0
+      },
+      "passive_skill_id": null,
+      "learned_skill": null
+    },
+    {
+      "id": "CLS_SNIPER",
+      "name": "Sniper",
+      "tier": "PROMOTED",
+      "weapons_allowed": [
+        "BOW"
+      ],
+      "promotion_gains": {
+        "mov": 1,
+        "hp": 2,
+        "str": 2,
+        "mag": 0,
+        "def": 1,
+        "res": 0,
+        "skl": 2,
+        "spd": 1,
+        "lck": 0
+      },
+      "passive_skill_id": null,
+      "learned_skill": null
+    },
+    {
+      "id": "CLS_SAGE",
+      "name": "Sage",
+      "tier": "PROMOTED",
+      "weapons_allowed": [
+        "FIRE",
+        "THUNDER",
+        "STAFF"
+      ],
+      "promotion_gains": {
+        "mov": 1,
+        "hp": 2,
+        "str": 0,
+        "mag": 3,
+        "def": 0,
+        "res": 2,
+        "skl": 1,
+        "spd": 1,
+        "lck": 0
+      },
+      "passive_skill_id": null,
+      "learned_skill": null
+    },
+    {
+      "id": "CLS_BISHOP",
+      "name": "Bishop",
+      "tier": "PROMOTED",
+      "weapons_allowed": [
+        "STAFF"
+      ],
+      "promotion_gains": {
+        "mov": 1,
+        "hp": 2,
+        "str": 0,
+        "mag": 2,
+        "def": 0,
+        "res": 3,
+        "skl": 0,
+        "spd": 0,
+        "lck": 1
+      },
+      "passive_skill_id": null,
+      "learned_skill": null
+    }
+  ]
+}

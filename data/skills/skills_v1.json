@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "id": "SKL_COMMAND",
+      "name": "Command",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "AURA_HIT",
+        "radius": 1,
+        "value": 5,
+        "condition": "ALWAYS"
+      },
+      "description": "Adjacent allies gain +5 Hit."
+    },
+    {
+      "id": "SKL_FOCUSED_STRIKE",
+      "name": "Focused Strike",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "FIRST_ATTACK_HIT_BONUS",
+        "value": 10,
+        "condition": "PLAYER_PHASE"
+      },
+      "description": "First attack each player phase gains +10 Hit."
+    },
+    {
+      "id": "SKL_HEAVY_SWING",
+      "name": "Heavy Swing",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "DAMAGE_BONUS_IF_TARGET_DEF_LEQ_SELF",
+        "value": 1
+      },
+      "description": "+1 Damage when attacking enemies with DEF ≤ yours."
+    },
+    {
+      "id": "SKL_SHATTER",
+      "name": "Shatter",
+      "type": "ACTIVE",
+      "rules": {
+        "effect": "ON_HIT_APPLY_STAT_MOD",
+        "stat": "def",
+        "value": -1,
+        "duration": "UNTIL_END_ENEMY_PHASE"
+      },
+      "description": "On hit, enemy DEF −1 until end of enemy phase."
+    },
+    {
+      "id": "SKL_HOLD_THE_LINE",
+      "name": "Hold the Line",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "DEF_BONUS_IF_NO_MOVE",
+        "value": 2
+      },
+      "description": "+2 DEF if you did not move this turn."
+    },
+    {
+      "id": "SKL_BRACE",
+      "name": "Brace",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "DAMAGE_REDUCTION_PER_HIT_THIS_PHASE",
+        "value": 1
+      },
+      "description": "Reduce each incoming hit by 1 this phase."
+    },
+    {
+      "id": "SKL_STEADY_AIM",
+      "name": "Steady Aim",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "HIT_BONUS_IF_NO_MOVE",
+        "value": 10
+      },
+      "description": "+10 Hit if you did not move before attacking."
+    },
+    {
+      "id": "SKL_PINNING_SHOT",
+      "name": "Pinning Shot",
+      "type": "ACTIVE",
+      "rules": {
+        "effect": "ON_HIT_APPLY_STAT_MOD",
+        "stat": "mov",
+        "value": -1,
+        "duration": "NEXT_TURN"
+      },
+      "description": "On hit, target MOV −1 next turn."
+    },
+    {
+      "id": "SKL_ARCANE_FOCUS",
+      "name": "Arcane Focus",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "IGNORE_TERRAIN_DEF_BONUS",
+        "value": 1
+      },
+      "description": "Ignore +1 DEF from terrain when dealing damage."
+    },
+    {
+      "id": "SKL_OVERCHANNEL",
+      "name": "Overchannel",
+      "type": "TOGGLE",
+      "rules": {
+        "effect": "MODIFY_ATTACK",
+        "damage_delta": 2,
+        "hit_delta": -10
+      },
+      "description": "+2 Damage, −10 Hit (toggle before attack)."
+    },
+    {
+      "id": "SKL_HEALERS_TOUCH",
+      "name": "Healer's Touch",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "HEALING_BONUS",
+        "value": 2
+      },
+      "description": "Healing actions restore +2 HP."
+    },
+    {
+      "id": "SKL_REFRESH",
+      "name": "Refresh",
+      "type": "ACTIVE",
+      "rules": {
+        "effect": "APPLY_STAT_MOD",
+        "stat": "mov",
+        "value": 1,
+        "duration": "NEXT_TURN",
+        "range": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "description": "Target ally gains +1 MOV next turn."
+    },
+    {
+      "id": "SKL_VETERAN",
+      "name": "Veteran",
+      "type": "PASSIVE",
+      "rules": {
+        "effect": "AVOID_BONUS_IF_HP_ABOVE_PERCENT",
+        "value": 10,
+        "threshold_percent": 50
+      },
+      "description": "+10 Avoid when above 50% HP."
+    },
+    {
+      "id": "SKL_RALLY",
+      "name": "Rally",
+      "type": "ACTIVE",
+      "rules": {
+        "effect": "AURA_STAT_BONUS",
+        "radius": 1,
+        "stat": "str",
+        "value": 2,
+        "duration": "THIS_TURN"
+      },
+      "description": "Adjacent allies gain +2 STR this turn."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "enemies": [
+    {
+      "id": "ENY_BANDIT_BRUISER_L3",
+      "name": "Bandit",
+      "archetype": "BRUISER",
+      "level": 3,
+      "class_like": "CLS_FIGHTER",
+      "stats_override": {
+        "hp": 28,
+        "str": 9,
+        "mag": 0,
+        "def": 3,
+        "res": 1,
+        "skl": 5,
+        "spd": 4,
+        "lck": 3,
+        "mov": 5
+      },
+      "weapon_id": "WPN_IRON_AXE",
+      "ai_profile": "AI_AGGRO",
+      "sprite_key": "units:ENEMY_BANDIT_01"
+    },
+    {
+      "id": "ENY_SPEARMAN_TANK_L3",
+      "name": "Spearman",
+      "archetype": "TANK",
+      "level": 3,
+      "class_like": "CLS_SOLDIER",
+      "stats_override": {
+        "hp": 26,
+        "str": 6,
+        "mag": 0,
+        "def": 6,
+        "res": 2,
+        "skl": 6,
+        "spd": 3,
+        "lck": 3,
+        "mov": 4
+      },
+      "weapon_id": "WPN_IRON_SPEAR",
+      "ai_profile": "AI_HOLD",
+      "sprite_key": "units:ENEMY_SPEARMAN_01"
+    },
+    {
+      "id": "ENY_SWORDSMAN_SKIRM_L3",
+      "name": "Swordsman",
+      "archetype": "SKIRMISHER",
+      "level": 3,
+      "class_like": "CLS_LORD",
+      "stats_override": {
+        "hp": 22,
+        "str": 6,
+        "mag": 0,
+        "def": 2,
+        "res": 1,
+        "skl": 7,
+        "spd": 8,
+        "lck": 3,
+        "mov": 5
+      },
+      "weapon_id": "WPN_IRON_SWORD",
+      "ai_profile": "AI_AGGRO",
+      "sprite_key": "units:ENEMY_SWORDSMAN_01"
+    },
+    {
+      "id": "ENY_ARCHER_L3",
+      "name": "Archer",
+      "archetype": "ARCHER",
+      "level": 3,
+      "class_like": "CLS_ARCHER",
+      "stats_override": {
+        "hp": 22,
+        "str": 6,
+        "mag": 0,
+        "def": 1,
+        "res": 1,
+        "skl": 8,
+        "spd": 6,
+        "lck": 3,
+        "mov": 5
+      },
+      "weapon_id": "WPN_IRON_BOW",
+      "ai_profile": "AI_RANGED",
+      "sprite_key": "units:ENEMY_ARCHER_01"
+    },
+    {
+      "id": "ENY_CAPTAIN_BOSS_L4",
+      "name": "Captain",
+      "archetype": "BOSS",
+      "level": 4,
+      "class_like": "CLS_SOLDIER",
+      "stats_override": {
+        "hp": 36,
+        "str": 10,
+        "mag": 0,
+        "def": 10,
+        "res": 3,
+        "skl": 8,
+        "spd": 4,
+        "lck": 5,
+        "mov": 4
+      },
+      "weapon_id": "WPN_STEEL_SPEAR",
+      "ai_profile": "AI_BOSS_FORT",
+      "sprite_key": "units:ENEMY_CAPTAIN_01"
+    }
+  ]
+}
