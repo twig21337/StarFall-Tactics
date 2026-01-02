@@ -28,7 +28,7 @@ static func take_turn(state: BattleState, unit: UnitModel) -> Dictionary:
     var moved_targets := []
     for enemy in enemies:
         var dist := MovementSystem.manhattan(best_tile, enemy.position)
-        var range := weapon.get("range", {})
+        var range = weapon.get("range", {})
         if dist >= range.get("min", 1) and dist <= range.get("max", 1):
             moved_targets.append(enemy)
     if not moved_targets.is_empty():

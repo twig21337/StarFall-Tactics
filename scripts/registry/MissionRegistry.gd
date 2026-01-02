@@ -8,7 +8,7 @@ func load_data() -> void:
     missions.clear()
     for path in mission_files:
         var data := JsonLoader.load_json(path)
-        var mission_id := data.get("id", "")
+        var mission_id = data.get("id", "")
         if mission_id != "":
             missions[mission_id] = data
 

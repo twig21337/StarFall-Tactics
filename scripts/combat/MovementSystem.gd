@@ -15,7 +15,7 @@ static func get_reachable_tiles(map: MapModel, start: Vector2i, move_points: int
             var tile := Registries.tiles.get_tile(tile_id)
             if tile.is_empty() or not tile.get("passable", true):
                 continue
-            var move_cost := tile.get("move_cost", 1)
+            var move_cost = tile.get("move_cost", 1)
             var new_cost := cost_so_far[current] + move_cost
             if new_cost > move_points:
                 continue

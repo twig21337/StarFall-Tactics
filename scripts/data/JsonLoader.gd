@@ -10,7 +10,7 @@ static func load_json(path: String) -> Dictionary:
         push_warning("JsonLoader: Failed to open %s" % path)
         return {}
     var content := file.get_as_text()
-    var result := JSON.parse_string(content)
+    var result = JSON.parse_string(content)
     if result is Dictionary:
         return result
     push_warning("JsonLoader: Invalid JSON in %s" % path)

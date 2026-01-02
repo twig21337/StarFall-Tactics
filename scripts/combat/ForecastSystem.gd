@@ -5,7 +5,7 @@ static func build_forecast(attacker: UnitModel, defender: UnitModel, map: MapMod
     var attacker_weapon := Registries.weapons.get_weapon(attacker.weapon_id)
     var defender_weapon := Registries.weapons.get_weapon(defender.weapon_id)
     var attacker_stats := CombatMath.compute_combat_stats(attacker, defender, map)
-    var counter := null
+    var counter = null
     if TargetingSystem.can_counter(defender, attacker, defender_weapon):
         counter = CombatMath.compute_combat_stats(defender, attacker, map)
     var terrain_label := TerrainSystem.get_terrain_label(TerrainSystem.get_tile_data(map, defender.position))

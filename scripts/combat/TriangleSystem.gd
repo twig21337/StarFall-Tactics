@@ -9,8 +9,8 @@ static func get_triangle(attacker_weapon: Dictionary, defender_weapon: Dictionar
         return result
     if defender_weapon.get("category", "") != "MELEE":
         return result
-    var atk_type := attacker_weapon.get("subtype", "")
-    var def_type := defender_weapon.get("subtype", "")
+    var atk_type = attacker_weapon.get("subtype", "")
+    var def_type = defender_weapon.get("subtype", "")
     var valid := ["SWORD", "AXE", "SPEAR"]
     if not valid.has(atk_type) or not valid.has(def_type):
         return result

@@ -8,7 +8,7 @@ func load_data() -> void:
     maps.clear()
     for path in map_files:
         var data := JsonLoader.load_json(path)
-        var map_id := data.get("id", "")
+        var map_id = data.get("id", "")
         if map_id != "":
             maps[map_id] = data
 

@@ -9,8 +9,8 @@ static func get_terrain_label(tile: Dictionary) -> String:
     if tile.is_empty():
         return ""
     var parts := []
-    var avoid := tile.get("avoid_bonus", 0)
-    var def_bonus := tile.get("def_bonus", 0)
+    var avoid = tile.get("avoid_bonus", 0)
+    var def_bonus = tile.get("def_bonus", 0)
     if avoid != 0:
         parts.append("%+d Avo" % avoid)
     if def_bonus != 0:

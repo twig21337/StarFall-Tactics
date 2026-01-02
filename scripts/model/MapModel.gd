@@ -11,16 +11,16 @@ var legend := {}
 func from_data(data: Dictionary) -> void:
     id = data.get("id", "")
     name = data.get("name", "")
-    var size_data := data.get("size", {})
+    var size_data = data.get("size", {})
     size = Vector2i(size_data.get("w", 0), size_data.get("h", 0))
     legend = data.get("legend", {})
     markers = data.get("markers", {})
     terrain_grid.clear()
-    var rows := data.get("layers", {}).get("terrain", [])
+    var rows = data.get("layers", {}).get("terrain", [])
     for row in rows:
         var row_tiles := []
         for ch in row:
-            var tile_id := legend.get(ch, "TILE_PLAIN")
+            var tile_id = legend.get(ch, "TILE_PLAIN")
             row_tiles.append(tile_id)
         terrain_grid.append(row_tiles)
 

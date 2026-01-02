@@ -103,7 +103,7 @@ func _confirm_attack() -> void:
         return
     var weapon := Registries.weapons.get_weapon(ui_state.selected_unit.weapon_id)
     var dist := MovementSystem.manhattan(ui_state.selected_unit.position, target.position)
-    var range := weapon.get("range", {})
+    var range = weapon.get("range", {})
     if dist < range.get("min", 1) or dist > range.get("max", 1):
         return
     _trigger_target_unit(ui_state.selected_unit, target)
@@ -212,7 +212,7 @@ func _check_unit_down(unit: UnitModel) -> void:
 func _check_victory_conditions() -> void:
     if battle_state.winner != "":
         return
-    var boss_spawn := battle_state.mission.objective.get("boss_spawn_id", "")
+    var boss_spawn = battle_state.mission.objective.get("boss_spawn_id", "")
     if boss_spawn != "":
         var boss_alive := false
         for unit in battle_state.units:
@@ -225,7 +225,7 @@ func _check_victory_conditions() -> void:
             return
     for condition in battle_state.mission.loss_conditions:
         if condition.get("type", "") == "TAG_DEFEATED":
-            var tag := condition.get("tag", "")
+            var tag = condition.get("tag", "")
             var tag_alive := false
             for unit in battle_state.units:
                 if unit.side == "PLAYER" and unit.is_tagged(tag):

@@ -16,7 +16,7 @@ static func _apply_strikes(attacker: UnitModel, defender: UnitModel, stats: Dict
         if defender.hp <= 0:
             return
         var hit_roll := _roll_2rn()
-        var hit := hit_roll < stats.get("hit", 0)
+        var hit = hit_roll < stats.get("hit", 0)
         var crit := false
         var dmg := 0
         if hit:

@@ -11,15 +11,15 @@ static func compute_combat_stats(attacker: UnitModel, defender: UnitModel, map: 
         atk = attacker.get_stat("mag") + weapon.get("might", 0)
     else:
         atk = attacker.get_stat("str") + weapon.get("might", 0)
-    var def_total := defender.get_stat("def") + tile.get("def_bonus", 0)
+    var def_total = defender.get_stat("def") + tile.get("def_bonus", 0)
     if weapon.get("category", "") == "MAGIC":
         def_total = defender.get_stat("res") + tile.get("res_bonus", 0)
-    var dmg := max(0, atk - def_total + triangle.get("dmg_mod", 0))
-    var hit := weapon.get("hit", 0) + attacker.get_stat("skl") * 2 + attacker.get_stat("lck")
+    var dmg = max(0, atk - def_total + triangle.get("dmg_mod", 0))
+    var hit = weapon.get("hit", 0) + attacker.get_stat("skl") * 2 + attacker.get_stat("lck")
     hit += triangle.get("hit_mod", 0)
-    var avo := defender.get_stat("spd") * 2 + defender.get_stat("lck") + tile.get("avoid_bonus", 0)
-    var hit_final := clamp(hit - avo, 10, 100)
-    var crit := weapon.get("crit", 0) + int(floor(attacker.get_stat("skl") / 2.0))
+    var avo = defender.get_stat("spd") * 2 + defender.get_stat("lck") + tile.get("avoid_bonus", 0)
+    var hit_final = clamp(hit - avo, 10, 100)
+    var crit = weapon.get("crit", 0) + int(floor(attacker.get_stat("skl") / 2.0))
     var crit_avo := defender.get_stat("lck")
     var crit_final := clamp(crit - crit_avo, 0, 30)
     var strikes := 1
