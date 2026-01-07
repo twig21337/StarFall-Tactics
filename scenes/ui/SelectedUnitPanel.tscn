@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/SelectedUnitPanel.gd" id="1"]
+
+[node name="SelectedUnitPanel" type="Control"]
+anchor_right = 0.25
+anchor_bottom = 0.15
+script = ExtResource("1")
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Selected: -"
